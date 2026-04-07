@@ -1,9 +1,9 @@
-The Story: Human Credibility vs. AI-Like Virality
+## The Story: Human Credibility vs. AI-Like Virality
 The modern digital landscape is a battlefield between factual information and high-velocity misinformation. This project tells the story of how Human Content (verified, factual news) competes for attention against AI-Like Content (sensationalized, mixed, or false information).
 
 By segmenting data into these two groups, the analysis reveals a sobering reality: while factual content maintains a higher total volume of posts, misinformation is often engineered to be more viral, spreading through active shares rather than just passive reactions. The narrative shifts from simply asking how many likes a post received to analyzing the quality and intent of the engagement.
 
-2. Technical Roadmap: Data Engineering & Pipeline
+## 2. Technical Roadmap: Data Engineering & Pipeline
 To arrive at these insights, a multi-stage technical pipeline was executed across four primary software environments.
 
 Data Cleaning and Preprocessing (Excel & Python)
@@ -17,7 +17,7 @@ Integrity Checks: Filtering out rows with negative reaction counts or missing UR
 
 Statistical Noise: Using the Interquartile Range (IQR) method in Python to detect engagement levels so extreme they likely resulted from bot activity or artificial boosting.
 
-The Engine of Scale (SQL)
+## The Engine of Scale (SQL)
 While Excel was used for auditing, SQL was the engine of scale. Social media datasets contain tens of thousands of records, making manual analysis impossible.
 
 Engagement Tiering: Using SQL Window Functions like NTILE(3), we segmented posts into three tiers. This allowed us to target the "Top Tier"—the posts that reached the largest audience.
@@ -26,7 +26,7 @@ High-Risk Identification: We wrote complex queries to filter for posts in the to
 
 Publisher Metrics: SQL calculated the average engagement per publisher to identify "Misinformation Engines"—pages consistently producing high-engagement, low-truth content.
 
-3. Deep Business & Analytical Insights
+## 3. Deep Business & Analytical Insights
 The data provided several critical "aha!" moments for media strategy and platform safety:
 
 The Virality Gap (Python & SQL)
@@ -43,7 +43,7 @@ Finding: Human content has a higher "Reaction Ratio" (passive agreement), while 
 
 Discussion Intensity: We created a metric (Comments divided by Reactions) to measure controversy. "Mixed" content often had the highest intensity, indicating it was designed to spark polarizing debate.
 
-Data Visualization Questions and Insights
+## Data Visualization Questions and Insights
 
 This project explores how Human-generated and AI-like content behave across engagement, virality, and credibility.
 
@@ -115,14 +115,14 @@ The differences are statistically meaningful, especially in how users interact w
 ![Effect Size](images/chart5.png)
 
 
-4. Challenges Faced & Solutions
+## 4. Challenges Faced & Solutions
 Working with this dataset presented significant statistical hurdles:
 
 The Power Law Challenge: Most posts get zero engagement, while a few get millions. To solve this, Python applied a Log Transformation (log10) to engagement metrics, allowing us to visualize patterns that would otherwise be invisible.
 
 Volume vs. Impact: Factual news had 10x the post volume, but misinformation had 3x the engagement per post. We solved this by moving away from "Total Sums" and focusing on Weighted Averages and Engagement Tiers to show the true impact of viral falsehoods.
 
-5. Communication Layer: Strategic Visualization (Tableau)
+## 5. Communication Layer: Strategic Visualization (Tableau)
 The final stage was translating these technical findings into a language for decision-makers using Tableau.
 
 Command Center Dashboard: We created a dashboard visualizing the "Engagement Spread" and "Publisher Risk Leaderboard."
@@ -134,7 +134,7 @@ Post Type Performance: The visualization revealed that photos and videos were mo
 ![Tableau Dashboard](images/dashboard.png)
 
 
-6. Solving Real-Life Problems
+## 6. Solving Real-Life Problems
 This integrated solution translates into three real-world applications:
 
 Content Moderation at Scale: Instead of trying to fact-check every post, platforms can use the High Risk Flag (Top Tier + High Virality) to focus on the 1% of content causing 90% of the harm.
